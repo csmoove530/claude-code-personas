@@ -177,6 +177,7 @@ cd claude-code-personas
 # Symlink personas to your skills directory
 ln -s "$(pwd)/scott-aaronson" ~/.claude/skills/scott-aaronson
 ln -s "$(pwd)/dan-boneh" ~/.claude/skills/dan-boneh
+ln -s "$(pwd)/quantum-research-team" ~/.claude/skills/quantum-research-team
 ```
 
 **Why symlink?** When we update personas with new knowledge or refinements, just run `git pull` and you'll automatically have the latest version.
@@ -189,17 +190,80 @@ If you prefer to manage updates manually:
 # Copy the personas you want
 cp -r claude-code-personas/scott-aaronson ~/.claude/skills/
 cp -r claude-code-personas/dan-boneh ~/.claude/skills/
+cp -r claude-code-personas/quantum-research-team ~/.claude/skills/
 ```
 
 ### Verify Installation
 
 ```bash
 # Verify it worked
-ls ~/.claude/skills/ | grep -E "(scott-aaronson|dan-boneh)"
-# Should output: scott-aaronson dan-boneh (or whichever you installed)
+ls ~/.claude/skills/ | grep -E "(scott-aaronson|dan-boneh|quantum-research-team)"
+# Should output: scott-aaronson dan-boneh quantum-research-team (or whichever you installed)
 ```
 
-Now you can invoke `/scott-aaronson` or `/dan-boneh` in Claude Code!
+Now you can invoke `/scott-aaronson`, `/dan-boneh`, or `/quantum-research-team` in Claude Code!
+
+---
+
+## Team Personas (Composite Experts)
+
+### Quantum Research Team - Combined Quantum + Cryptography Expertise
+
+**Team composition:**
+- Scott Aaronson (quantum computing theory, hardware realism)
+- Dan Boneh (applied cryptography, PQC implementation)
+
+**Best for:**
+- Strategic PQC migration planning (combines timelines with deployment)
+- Multi-perspective analysis (quantum theory + cryptographic engineering)
+- Questions requiring both "when will quantum break crypto" and "what do we do about it"
+- Seeing where experts agree and where they differ
+- Comprehensive blockchain security assessments
+
+**Example questions:**
+- "Should Ethereum migrate to PQC now?" (gets both timeline analysis and migration strategy)
+- "When will quantum computers break blockchain signatures?" (theory + practical risk)
+- "What's the best PQC algorithm for blockchains?" (mathematical foundations + engineering trade-offs)
+- "Are zero-knowledge proofs quantum-secure?" (algorithmic security + ZK system migration)
+
+**Usage:**
+
+Invoke the team:
+```
+/quantum-research-team
+
+Should Ethereum migrate to PQC now?
+```
+
+Example response structure:
+```
+**From Aaronson's perspective:**
+Timeline uncertainty (10-30+ years), current QCs nowhere near breaking crypto,
+but risk asymmetry suggests planning now.
+
+**From Boneh's perspective:**
+NIST has standardized Dilithium. Migration is engineering challenge. Phased
+deployment: hybrid signatures (2025-2027) → mandatory PQC (2028-2030). "Harvest
+now, decrypt later" threat means action needed today.
+
+**Where they agree:**
+- Start testing and planning immediately
+- Migration takes years, begin now to be ready
+- Don't panic, but don't procrastinate
+
+**Where they differ:**
+- Timeline emphasis: Aaronson emphasizes uncertainty; Boneh emphasizes urgency
+- Aaronson: "plan for 10-20 year horizon"; Boneh: "deploy hybrid PQC in 3-5 years"
+
+**Synthesis:**
+Begin PQC testing now with hybrid signatures, plan mandatory migration by 2030,
+monitor quantum hardware progress for timeline adjustments.
+```
+
+**Why use the team vs. individual experts:**
+- **Team**: Strategic planning, multiple perspectives, comprehensive analysis
+- **Individual (Aaronson)**: Pure quantum computing questions, timeline skepticism
+- **Individual (Boneh)**: Pure cryptographic engineering, PQC implementation details
 
 ---
 

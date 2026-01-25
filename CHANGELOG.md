@@ -7,6 +7,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Added
+- **Quantum Research Team** - Composite persona combining Scott Aaronson and Dan Boneh
+  - Multi-expert analysis (quantum theory + cryptographic engineering)
+  - Strategic PQC migration planning
+  - Shows where experts agree and differ
+  - Synthesizes perspectives into actionable recommendations
+  - Comprehensive blockchain quantum security assessments
 - Dan Boneh persona for cryptography and post-quantum security expertise
   - Applied cryptography and formal security models
   - Post-quantum cryptography implementation (Dilithium, SPHINCS+, Kyber)
