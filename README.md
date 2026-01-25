@@ -31,9 +31,7 @@ Will quantum computers break Bitcoin?
 
 ## What is a Persona?
 
-Claude Code Personas lets you invoke domain experts by name - channeling their knowledge, perspective, and voice to tackle specific problems. Think of it as assembling a virtual research team where you can ask `/scott-aaronson` about quantum computing or `/dan-boneh` about cryptography (coming soon).
-
-A **persona** is a Claude Code skill that embodies a specific individual's expertise, perspective, and communication style. By ingesting their published work (papers, blog posts, talks), we create a specialized knowledge base that Claude can draw from when you need domain-specific guidance.
+Claude Code Personas lets you invoke domain experts by name - channeling their knowledge, perspective, and voice to tackle specific problems. Think of it as assembling a virtual research team where you can ask `/scott-aaronson` about quantum computing or `/dan-boneh` about cryptography.
 
 A **persona** is a Claude Code skill that embodies a specific individual's expertise, perspective, and communication style. By ingesting their published work (papers, blog posts, talks), we create a specialized knowledge base that Claude can draw from when you need domain-specific guidance.
 
@@ -102,6 +100,67 @@ Different task, different scale, different timeline.
 - Research papers on quantum algorithms and cryptography
 - Quantum supremacy FAQs and talks
 
+### Dan Boneh - Cryptography & Post-Quantum Security Expert
+
+**Expertise:** Applied cryptography, post-quantum cryptography (PQC), zero-knowledge proofs, blockchain cryptographic security, quantum-secure signatures
+
+**Voice:** Rigorous, mathematically precise - focuses on formal security models and practical engineering
+
+**Best for:**
+- Post-quantum cryptography implementation (Dilithium, SPHINCS+, Kyber)
+- Blockchain PQC migration strategies (signatures, ZK, smart contracts)
+- Zero-knowledge proof systems (SNARKs, STARKs, lattice-based ZK)
+- Cryptographic engineering trade-offs (performance, security, deployment)
+- Quantum-secure threshold signatures and multi-party computation
+- "Harvest now, decrypt later" threat analysis
+
+**Example questions:**
+- "Which PQC algorithm should we use for blockchain signatures?"
+- "How do we migrate Ethereum to post-quantum cryptography?"
+- "Are zero-knowledge proofs quantum-secure?"
+- "What's the performance impact of PQC on blockchains?"
+
+**Usage:**
+
+Invoke the persona:
+```
+/dan-boneh
+
+Should Ethereum migrate to Dilithium signatures now?
+```
+
+Example response:
+```
+Ethereum should start testing Dilithium now, but full migration should be phased over 3-5 years.
+
+The migration path:
+
+Phase 1 (2025-2026): Add PQC precompiles
+- Deploy Dilithium signature verification as EVM precompile
+- Test gas costs and performance
+
+Phase 2 (2027): Hybrid accounts
+- Support dual signature schemes (ECDSA + Dilithium)
+- Users opt into quantum-secure addresses
+
+Phase 3 (2028-2029): Mandatory PQC for new accounts
+- Hard fork: new accounts must use Dilithium
+- Old accounts continue (with quantum risk)
+
+Phase 4 (2030+): Full PQC
+- Eventually deprecate ECDSA entirely
+
+As Boneh's CS251 post-quantum blockchains lecture emphasizes: start testing now,
+deploy gradually, and maintain cryptographic agility.
+```
+
+**Source knowledge:**
+- Stanford CS251 (Blockchain Technologies) course materials
+- "A Graduate Course in Applied Cryptography" textbook
+- Research papers on lattice-based cryptography and quantum-secure signatures
+- NIST PQC standardization contributions
+- Quantum cryptanalysis research
+
 ---
 
 ## Installation
@@ -115,8 +174,9 @@ Use symlinks so you automatically get updates when you pull new changes:
 git clone https://github.com/csmoove530/claude-code-personas.git
 cd claude-code-personas
 
-# Symlink Scott Aaronson persona to your skills directory
+# Symlink personas to your skills directory
 ln -s "$(pwd)/scott-aaronson" ~/.claude/skills/scott-aaronson
+ln -s "$(pwd)/dan-boneh" ~/.claude/skills/dan-boneh
 ```
 
 **Why symlink?** When we update personas with new knowledge or refinements, just run `git pull` and you'll automatically have the latest version.
@@ -126,19 +186,20 @@ ln -s "$(pwd)/scott-aaronson" ~/.claude/skills/scott-aaronson
 If you prefer to manage updates manually:
 
 ```bash
-# Copy just the persona you want
+# Copy the personas you want
 cp -r claude-code-personas/scott-aaronson ~/.claude/skills/
+cp -r claude-code-personas/dan-boneh ~/.claude/skills/
 ```
 
 ### Verify Installation
 
 ```bash
 # Verify it worked
-ls ~/.claude/skills/ | grep scott-aaronson
-# Should output: scott-aaronson
+ls ~/.claude/skills/ | grep -E "(scott-aaronson|dan-boneh)"
+# Should output: scott-aaronson dan-boneh (or whichever you installed)
 ```
 
-Now you can invoke `/scott-aaronson` in Claude Code!
+Now you can invoke `/scott-aaronson` or `/dan-boneh` in Claude Code!
 
 ---
 

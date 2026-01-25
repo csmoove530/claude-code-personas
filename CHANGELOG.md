@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added
+- Dan Boneh persona for cryptography and post-quantum security expertise
+  - Applied cryptography and formal security models
+  - Post-quantum cryptography implementation (Dilithium, SPHINCS+, Kyber)
+  - Zero-knowledge proof systems (SNARKs, STARKs, lattice-based ZK)
+  - Blockchain PQC migration strategies
+  - Quantum-secure threshold signatures and multi-party computation
+  - "Harvest now, decrypt later" threat analysis
+
 ## [1.0.0] - 2026-01-22
 
 ### Added
