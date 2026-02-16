@@ -7,6 +7,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Added
+- **Paul Frambot** - DeFi lending infrastructure and protocol design expert
+  - Trust pricing mechanisms and lending first principles
+  - Isolated market architecture vs. pooled risk design
+  - Vault/curator/allocator patterns for asset management
+  - Protocol vs. underwriting responsibility separation
+  - Institutional DeFi adoption strategies
+  - Minimal immutable core philosophy
+  - Source: "The Price of Trust", Morpho Blue whitepaper, "Morpho 2026"
 - **Quantum Research Team** - Composite persona combining Scott Aaronson and Dan Boneh
   - Multi-expert analysis (quantum theory + cryptographic engineering)
   - Strategic PQC migration planning

@@ -161,6 +161,65 @@ deploy gradually, and maintain cryptographic agility.
 - NIST PQC standardization contributions
 - Quantum cryptanalysis research
 
+### Paul Frambot - DeFi Lending Infrastructure & Protocol Design Expert
+
+**Expertise:** DeFi lending protocol architecture, trust pricing mechanisms, isolated market design, vault-based asset management, institutional DeFi adoption
+
+**Voice:** Infrastructure maximalist, first-principles thinker - biased toward minimal cores, externalized risk, and market-driven decisions
+
+**Best for:**
+- Designing onchain lending protocols from first principles
+- Trust model architecture (collateral, identity, reputation, legal contracts)
+- Isolated markets vs. pooled risk trade-offs
+- Vault/curator/allocator pattern implementation
+- Institutional DeFi integration strategies
+- Protocol vs. underwriting responsibility separation
+
+**Example questions:**
+- "How should we design a lending protocol's trust model?"
+- "Should our protocol handle risk management or externalize it?"
+- "How do we design for institutional adoption?"
+- "What's the right interest rate model for DeFi lending?"
+
+**Usage:**
+
+Invoke the persona:
+```
+/paul-frambot
+
+We're building a new lending protocol. Should we have governance control risk parameters?
+```
+
+Example response:
+```
+No. This is exactly the architectural mistake to avoid.
+
+The question to ask: 'What part of this design is underwriting, and why is it in
+the protocol at all?' Governance-controlled risk parameters mean:
+- Single point of failure for all risk decisions
+- Governance becomes bottleneck for asset additions
+- DAO capture can weaponize risk settings
+- Users can't express different risk views
+
+Frambot's approach: externalize risk entirely. The protocol should be minimal
+immutable rails—supply, borrow, repay, liquidate, accounting invariants. That's it.
+
+Risk parameters (oracles, LTVs, interest models) should live at the edges:
+curators package markets into vaults with their risk views, users choose which
+curators to trust, multiple actors can disagree and coexist.
+
+As Frambot argues in 'The Price of Trust': "It shouldn't be the protocol's
+decision whether a loan is issued; that's for the market to decide."
+```
+
+**Source knowledge:**
+- "The Price of Trust" essay on lending first principles
+- Morpho Blue whitepaper and architecture
+- "Stablecoins Upgraded Money, Vaults Will Upgrade Asset Management"
+- "Morpho 2026" institutional adoption strategy
+- "What Good Can DeFi Truly Unlock?" on DeFi as common good
+- Podcast appearances on onchain lending and enterprise adoption
+
 ---
 
 ## Installation
@@ -177,6 +236,7 @@ cd claude-code-personas
 # Symlink personas to your skills directory
 ln -s "$(pwd)/scott-aaronson" ~/.claude/skills/scott-aaronson
 ln -s "$(pwd)/dan-boneh" ~/.claude/skills/dan-boneh
+ln -s "$(pwd)/paul-frambot" ~/.claude/skills/paul-frambot
 ln -s "$(pwd)/quantum-research-team" ~/.claude/skills/quantum-research-team
 ```
 
@@ -190,6 +250,7 @@ If you prefer to manage updates manually:
 # Copy the personas you want
 cp -r claude-code-personas/scott-aaronson ~/.claude/skills/
 cp -r claude-code-personas/dan-boneh ~/.claude/skills/
+cp -r claude-code-personas/paul-frambot ~/.claude/skills/
 cp -r claude-code-personas/quantum-research-team ~/.claude/skills/
 ```
 
@@ -197,11 +258,11 @@ cp -r claude-code-personas/quantum-research-team ~/.claude/skills/
 
 ```bash
 # Verify it worked
-ls ~/.claude/skills/ | grep -E "(scott-aaronson|dan-boneh|quantum-research-team)"
-# Should output: scott-aaronson dan-boneh quantum-research-team (or whichever you installed)
+ls ~/.claude/skills/ | grep -E "(scott-aaronson|dan-boneh|paul-frambot|quantum-research-team)"
+# Should output: scott-aaronson dan-boneh paul-frambot quantum-research-team (or whichever you installed)
 ```
 
-Now you can invoke `/scott-aaronson`, `/dan-boneh`, or `/quantum-research-team` in Claude Code!
+Now you can invoke `/scott-aaronson`, `/dan-boneh`, `/paul-frambot`, or `/quantum-research-team` in Claude Code!
 
 ---
 
